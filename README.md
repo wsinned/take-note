@@ -32,11 +32,34 @@ python -m venv venv
 
 source venv/bin/activate
 
+# install with tests as editable src
+venv/bin/pip3 install -e '.[test]'
+
+# run the tests
+pytest
+
 # close the virtual environment and exit the shell when done
 deactivate
 exit
 ````
 
 
-### Other
-TBC
+### Other Linux or MacOS
+
+````
+# only needed once, or to recreate the virtual environment
+python -m venv venv 
+
+source venv/bin/activate
+
+venv/bin/pip3 install -r requirements.txt -r requirements.dev.txt
+
+# install with tests as editable src
+venv/bin/pip3 install -e '.[test]'
+
+# run the tests
+venv/bin/pytest
+
+# close the virtual environment when done
+deactivate
+````
