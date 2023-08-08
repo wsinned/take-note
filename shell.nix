@@ -9,6 +9,7 @@
         pkgs.python311Packages.setuptools
         pkgs.python311Packages.wheel
         pkgs.python311Packages.pytest
+        pkgs.python311Packages.dateutils
     ];
 
     # nativeBuildInputs is usually what you want 
