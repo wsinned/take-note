@@ -1,7 +1,7 @@
 import pytest
 from datetime import date
 from dateutil.parser import parse
-from takenote.utils.dates import get_monday
+from takenote.utils.dates import get_monday, format_header_date, format_file_date
 
 class TestDates:
 
@@ -27,3 +27,11 @@ class TestDates:
         today = parse("2023-08-07")
         monday = get_monday(today)
         assert monday == today
+
+    def test_header_date(self):
+        day = parse("2023-08-08")
+        assert format_header_date(day) == "Tuesday 08 August 2023"
+
+    def test_file_date(self):
+        day = parse("2023-08-31")
+        assert format_file_date(day) == "2023-08-31"
