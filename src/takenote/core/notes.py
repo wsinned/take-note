@@ -8,7 +8,7 @@ class Notes:
         folder = generate_note_folder(week, root_path)
         print(f"folder: {folder}")
 
-        path = folder.joinpath(generate_note_path(week, Path("")))
+        path = folder.joinpath(generate_note_path(week))
         print(f"path: {path}")
 
         folder.mkdir(parents=True, exist_ok=True)
