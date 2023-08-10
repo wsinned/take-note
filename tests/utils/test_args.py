@@ -8,4 +8,4 @@ class TestArgs:
 
     def test_default_notes_folder(self):
         notes_folder = args.process_args([])
-        assert notes_folder == Path.home
+        assert notes_folder == Path.home().joinpath("Notes")

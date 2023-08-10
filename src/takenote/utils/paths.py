@@ -7,5 +7,5 @@ def generate_note_path(week: date):
     return Path(f"{format_file_date(week)}-Weekly-log.md")
 
 
-def generate_note_folder(week: date, path):
+def generate_note_folder(week: date, path: Path):
     return Path.joinpath(path, week.strftime("%Y"), week.strftime("%m"))

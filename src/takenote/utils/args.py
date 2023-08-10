@@ -13,9 +13,10 @@ def init_argparse() -> argparse.ArgumentParser:
     )
     parser.add_argument(
         "--notesFolder",
-        default=pathlib.Path.home,
+        default=pathlib.Path.home().joinpath("Notes"),
         type=pathlib.Path,
-        help="The root path for the notes folder. If not supplied this defaults to the home folder.",
+        help="""The root path for the notes folder. 
+        If not supplied this defaults to the Notes folder in the users home folder."""
     )
 
     return parser
