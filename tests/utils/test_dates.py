@@ -1,5 +1,3 @@
-import pytest
-from datetime import date
 from dateutil.parser import parse
 from takenote.utils.dates import get_monday, format_header_date, format_file_date
 
