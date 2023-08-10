@@ -13,8 +13,28 @@
 
 ## Installation
 
+Presently only running installed in the virtual environment is supported.
+
+```
+python -m venv venv 
+
+source venv/bin/activate
+
+# install with tests as editable src
+venv/bin/pip3 install .
+
+venv/bin/take-note --notesFolder=$HOME/MyNotes
+```
 
 ## Usage
+
+Spefify a folder using the --notesFolder option, otherwise $HOME/Notes will be used
+
+```
+venv/bin/take-note --notesFolder=$HOME/MyNotes
+```
+
+A note will be created in the under the MyNotes/YYYY/mm folder named with the date of the Monday of this week, e.g. 2023-08-07-Weekly-log.md
 
 
 
