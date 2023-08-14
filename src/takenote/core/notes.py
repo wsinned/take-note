@@ -4,8 +4,8 @@ from takenote.utils.dates import get_monday
 from takenote.utils.args import process_args
 
 
-def create_file(week: date, root_path):
-    folder = generate_note_folder(week, root_path)
+def create_file(week: date, folder_path):
+    folder = generate_note_folder(week, folder_path)
     print(f"folder: {folder}")
 
     path = folder.joinpath(generate_note_path(week))
