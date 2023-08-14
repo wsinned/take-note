@@ -13,6 +13,7 @@ def create_file(week: date, folder_path):
 
     folder.mkdir(parents=True, exist_ok=True)
     path.touch(exist_ok=True)
+    return path
 
 
 def main(argv):
