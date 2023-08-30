@@ -8,7 +8,8 @@
         pkgs.python311Packages.pip
         pkgs.python311Packages.setuptools
         pkgs.python311Packages.wheel
-        pkgs.python311Packages.build        
+        pkgs.python311Packages.build
+        pkgs.python311Packages.twine
         pkgs.python311Packages.pytest
         pkgs.python311Packages.dateutils
     ];
