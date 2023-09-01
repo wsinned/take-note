@@ -3,7 +3,7 @@
 
 ## Features
 
-- Open notes files for this week using the `code` comman line for VS Code.
+- Open notes files for this week using the `code` command line for VS Code.
 - Organises notes in a date based folder structure from your root notes folder, e.g. 2023/08
     - set the root notes folder using --notesFolder
 
