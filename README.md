@@ -3,13 +3,16 @@
 
 ## Features
 
-- Open notes files for this week, last week or next week from the cli in your favourite editor
+- Open notes files for this week using the `code` comman line for VS Code.
 - Organises notes in a date based folder structure from your root notes folder, e.g. 2023/08
-- When the file doesn't already exist, it uses an optional template to create the file. A sample template is supplied.
+    - set the root notes folder using --notesFolder
 
 ## Future features
-
+- Support for choosing the editor used.
+- Open the file for last week or next week.
+- When the file doesn't already exist, it uses an optional template to create the file. A sample template is supplied.
 - Support for daily notes options.
+
 
 ## Installation
 
@@ -45,7 +48,7 @@ A note will be created in the under the MyNotes/YYYY/mm folder named with the da
 The supplied shell.nix definition provides support for entering a nix-shell directly in the repository with all dependencies.
 
 ````
-nix-shell
+nix-shell --run zsh # ensure using zsh over default bash session
 
 # only needed once, or to recreate the virtual environment
 python -m venv venv 
