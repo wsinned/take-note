@@ -3,9 +3,10 @@ from pathlib import Path
 
 class TestArgs:
     def test_parse_notes_folder(self):
-        notes_folder = args.process_args(['--notesFolder', '/tmp/notes'])
-        assert notes_folder == Path('/tmp/notes')
+        options = args.process_args(['--notesFolder', '/tmp/notes'])
+        assert options.notesFolder == Path('/tmp/notes')
 
     def test_default_notes_folder(self):
-        notes_folder = args.process_args([])
-        assert notes_folder == Path.home().joinpath("Notes")
+        options = args.process_args([])
+        assert options.notesFolder == Path.home().joinpath("Notes")
+

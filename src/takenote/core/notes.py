@@ -23,6 +23,6 @@ def open_file(week: date, folder_path):
 
 
 def main(argv):
-    notes_folder = process_args(argv)
+    options = process_args(argv)
     monday = get_monday(date.today())
-    open_file(monday, notes_folder)
+    open_file(monday, options.notesFolder)

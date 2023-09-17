@@ -26,4 +26,4 @@ def process_args(args):
     parser = init_argparse()
     parsed = parser.parse_args(args)
 
-    return parsed.notesFolder
+    return parsed
