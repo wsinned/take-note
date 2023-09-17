@@ -16,9 +16,8 @@ class TestNotes:
     def test_open_file(self, mock_subprocess):
         week = parse("2023-08-31")
         homepath = Path.home()
-        note_file = notes.open_file(week, homepath.joinpath("tmp/notes"))
         target_file = homepath.joinpath("tmp/notes/2023/08/2023-08-31-Weekly-log.md")
-        note_file = notes.open_file(week, homepath.joinpath("tmp/notes"))
+        note_file = notes.open_file(week, homepath.joinpath("tmp/notes"), "code")
         assert note_file == target_file
 
     def test_entry_point(self):

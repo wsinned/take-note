@@ -17,16 +17,16 @@ def create_file(week: date, folder_path):
     return path
 
 
-def open_file(week: date, folder_path):
+def open_file(week: date, folder_path, editor):
     note_file = create_file(week, folder_path)
-    call(["code", note_file])
+    call([editor, note_file])
     return note_file
 
 
 def main(argv):
     options, parser = process_args(argv)
     print(options)
-    
+
     try:
         delta = get_time_delta_from_options(options)
     except ValueError:
@@ -34,4 +34,4 @@ def main(argv):
         sys.exit()
 
     monday = get_monday(date.today()) + delta
-    open_file(monday, options.notesFolder)
+    open_file(monday, options.notesFolder, "code")
