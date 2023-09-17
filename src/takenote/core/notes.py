@@ -34,4 +34,4 @@ def main(argv):
         sys.exit()
 
     monday = get_monday(date.today()) + delta
-    open_file(monday, options.notesFolder, "code")
+    open_file(monday, options.notesFolder, options.editor)

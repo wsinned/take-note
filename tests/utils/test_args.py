@@ -28,3 +28,7 @@ class TestArgs:
         assert options.thisWeek == False
         assert options.lastWeek == False
         assert options.nextWeek == False
+
+    def test_editor_option(self):
+        options, _ = args.process_args(["--editor", "nvim", "--thisWeek"])
+        assert options.editor == "nvim"

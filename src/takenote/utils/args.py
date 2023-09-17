@@ -19,6 +19,12 @@ def init_argparse() -> argparse.ArgumentParser:
         If not supplied this defaults to the Notes folder in the users home folder.""",
     )
     parser.add_argument(
+        "--editor",
+        default="code",
+        help="""The editor to open the notes with. 
+        If not supplied this defaults 'code' for Visual Studio Code""",
+    )
+    parser.add_argument(
         "--thisWeek",
         action="store_true",
         default=False,
