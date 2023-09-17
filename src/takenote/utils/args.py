@@ -24,12 +24,24 @@ def init_argparse() -> argparse.ArgumentParser:
         default=False,
         help="""Create or open a file dated for Monday of this week.""",
     )
+    parser.add_argument(
+        "--lastWeek",
+        action="store_true",
+        default=False,
+        help="""Create or open a file dated for Monday of last week.""",
+    )
+    parser.add_argument(
+        "--nextWeek",
+        action="store_true",
+        default=False,
+        help="""Create or open a file dated for Monday of next week.""",
+    )
 
     return parser
 
 
 def process_args(args):
     parser = init_argparse()
-    parsed = parser.parse_args(args)
+    options = parser.parse_args(args)
 
-    return parsed
+    return options, parser

@@ -23,7 +23,3 @@ class TestNotes:
 
     def test_entry_point(self):
         notes.main(["--thisWeek"])
-
-    def test_entry_point_without_option(self):
-        with pytest.raises(ValueError):
-            notes.main([])

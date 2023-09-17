@@ -1,4 +1,5 @@
 from datetime import date
+import sys
 from takenote.utils.paths import generate_note_folder, generate_note_path
 from takenote.utils.dates import get_monday, get_time_delta_from_options
 from takenote.utils.args import process_args
@@ -23,7 +24,14 @@ def open_file(week: date, folder_path):
 
 
 def main(argv):
-    options = process_args(argv)
-    delta = get_time_delta_from_options(options)
+    options, parser = process_args(argv)
+    print(options)
+    
+    try:
+        delta = get_time_delta_from_options(options)
+    except ValueError:
+        parser.print_help()
+        sys.exit()
+
     monday = get_monday(date.today()) + delta
     open_file(monday, options.notesFolder)
