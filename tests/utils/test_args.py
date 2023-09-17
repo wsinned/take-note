@@ -32,3 +32,7 @@ class TestArgs:
     def test_editor_option(self):
         options, _ = args.process_args(["--editor", "nvim", "--thisWeek"])
         assert options.editor == "nvim"
+    
+    def test_workspace_option(self):
+        options, _ = args.process_args(["--workspace", "notes.code-workspace", "--thisWeek"])
+        assert options.workspace == "notes.code-workspace"

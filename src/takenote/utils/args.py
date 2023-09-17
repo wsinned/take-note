@@ -25,6 +25,11 @@ def init_argparse() -> argparse.ArgumentParser:
         If not supplied this defaults 'code' for Visual Studio Code""",
     )
     parser.add_argument(
+        "--workspace",
+        help="""The VSCode workspace to open along with the notes. 
+        If supplied this overrides the --editor option to 'code' for Visual Studio Code""",
+    )
+    parser.add_argument(
         "--thisWeek",
         action="store_true",
         default=False,
