@@ -16,13 +16,13 @@ def init_argparse() -> argparse.ArgumentParser:
         default=pathlib.Path.home().joinpath("Notes"),
         type=pathlib.Path,
         help="""The root path for the notes folder. 
-        If not supplied this defaults to the Notes folder in the users home folder."""
+        If not supplied this defaults to the Notes folder in the users home folder.""",
     )
     parser.add_argument(
         "--thisWeek",
         action="store_true",
         default=False,
-        help="""Create or open a file dated for Monday of this week."""
+        help="""Create or open a file dated for Monday of this week.""",
     )
 
     return parser

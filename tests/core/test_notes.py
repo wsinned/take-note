@@ -22,7 +22,7 @@ class TestNotes:
         assert note_file == target_file
 
     def test_entry_point(self):
-        notes.main(['--thisWeek'])
+        notes.main(["--thisWeek"])
 
     def test_entry_point_without_option(self):
         with pytest.raises(ValueError):
