@@ -18,6 +18,12 @@ def init_argparse() -> argparse.ArgumentParser:
         help="""The root path for the notes folder. 
         If not supplied this defaults to the Notes folder in the users home folder."""
     )
+    parser.add_argument(
+        "--thisWeek",
+        action="store_true",
+        default=False,
+        help="""Create or open a file dated for Monday of this week."""
+    )
 
     return parser
 
