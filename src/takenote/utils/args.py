@@ -26,6 +26,7 @@ def init_argparse() -> argparse.ArgumentParser:
     )
     parser.add_argument(
         "--workspace",
+        default=None,
         help="""The VSCode workspace to open along with the notes. 
         If supplied this overrides the --editor option to 'code' for Visual Studio Code""",
     )
@@ -54,5 +55,8 @@ def init_argparse() -> argparse.ArgumentParser:
 def process_args(args):
     parser = init_argparse()
     options = parser.parse_args(args)
+
+    if options.workspace is not None:
+        options.editor = "code"
 
     return options, parser

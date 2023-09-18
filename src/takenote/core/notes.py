@@ -17,9 +17,13 @@ def create_file(week: date, folder_path):
     return path
 
 
-def open_file(week: date, folder_path, editor):
+def open_file(week: date, folder_path, editor, workspace=None):
     note_file = create_file(week, folder_path)
-    call([editor, note_file])
+    args = [editor, note_file]
+    if workspace:
+        args.append(folder_path.joinpath(workspace))
+
+    call(args)
     return note_file
 
 
@@ -34,4 +38,4 @@ def main(argv):
         sys.exit()
 
     monday = get_monday(date.today()) + delta
-    open_file(monday, options.notesFolder, options.editor)
+    open_file(monday, options.notesFolder, options.editor, options.workspace)
