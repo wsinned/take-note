@@ -7,9 +7,11 @@
     - --thisWeek, --lastWeek and --nextWeek are supported.
 - Organises notes in a date based folder structure from your root notes folder, e.g. 2023/08
     - set the root notes folder using --notesFolder
+- Choose which editor to use with --editor
+- Specify a VS Code workspace to open along with the note file with --workspace
+    - This will override the --editor setting to `code`
 
 ## Future features
-- Support for choosing the editor used.
 - When the file doesn't already exist, it uses an optional template to create the file. A sample template is supplied.
 - Support for daily notes options.
 
