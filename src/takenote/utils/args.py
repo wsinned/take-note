@@ -48,6 +48,12 @@ def init_argparse() -> argparse.ArgumentParser:
         default=False,
         help="""Create or open a file dated for Monday of next week.""",
     )
+    parser.add_argument(
+        "--template",
+        default=None,
+        help="""The template to use when creating a new file. 
+        The file location is relative to the root notes folder.""",
+    )
 
     return parser
 

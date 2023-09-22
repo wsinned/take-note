@@ -44,4 +44,7 @@ class TestArgs:
             ["--workspace", "notes.code-workspace", "--thisWeek", "--editor", "vim"]
         )
         assert options.editor == "code"
-            
+
+    def test_template_option(self):
+        options, _ = args.process_args(["--lastWeek", "--template", "a-template.md"])
+        assert options.template == "a-template.md"
