@@ -32,12 +32,16 @@ class TestArgs:
     def test_editor_option(self):
         options, _ = args.process_args(["--editor", "nvim", "--thisWeek"])
         assert options.editor == "nvim"
-    
+
     def test_workspace_option(self):
-        options, _ = args.process_args(["--workspace", "notes.code-workspace", "--thisWeek"])
+        options, _ = args.process_args(
+            ["--workspace", "notes.code-workspace", "--thisWeek"]
+        )
         assert options.workspace == "notes.code-workspace"
 
     def test_workspace_option_overrides_editor(self):
-        options, _ = args.process_args(["--workspace", "notes.code-workspace", "--thisWeek", "--editor", "vim"])
+        options, _ = args.process_args(
+            ["--workspace", "notes.code-workspace", "--thisWeek", "--editor", "vim"]
+        )
         assert options.editor == "code"
             
