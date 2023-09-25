@@ -9,11 +9,12 @@ from subprocess import call
 def create_file(week: date, folder_path):
     folder = generate_note_folder(week, folder_path)
     print(f"folder: {folder}")
+    if not folder.exists():
+        folder.mkdir(parents=True)
 
     path = folder.joinpath(generate_note_path(week))
-
-    folder.mkdir(parents=True, exist_ok=True)
-    path.touch(exist_ok=True)
+    if not path.exists():
+        path.touch()
     return path
 
 
