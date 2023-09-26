@@ -6,20 +6,29 @@ from takenote.utils.args import process_args
 from subprocess import call
 
 
-def create_file(week: date, folder_path):
+def create_file(note_file):
+    note_file.touch()
+
+
+def check_for_file(week: date, folder_path):
     folder = generate_note_folder(week, folder_path)
-    print(f"folder: {folder}")
+    
     if not folder.exists():
+        print(f"Creating folder: {folder}")
         folder.mkdir(parents=True)
 
-    path = folder.joinpath(generate_note_path(week))
-    if not path.exists():
-        path.touch()
-    return path
+    note_path = folder.joinpath(generate_note_path(week))
+
+    return note_path, note_path.exists()
 
 
 def open_file(week: date, folder_path, editor, workspace=None):
-    note_file = create_file(week, folder_path)
+    note_file, file_exists = check_for_file(week, folder_path)
+
+    if not file_exists:
+        print(f"Creating file: {note_file}")
+        create_file(note_file)
+
     args = [editor, note_file]
     if workspace:
         args.append(folder_path.joinpath(workspace))
