@@ -9,3 +9,7 @@ def generate_note_path(week: date):
 
 def generate_note_folder(week: date, path: Path):
     return Path.joinpath(path, week.strftime("%Y"), week.strftime("%m"))
+
+
+def generate_template_path(path: Path, template):
+    return Path.joinpath(path, template)
