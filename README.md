@@ -10,15 +10,29 @@
 - Choose which editor to use with --editor
 - Specify a VS Code workspace to open along with the note file with --workspace
     - This will override the --editor setting to `code`
+- Specify a template file relative to the root notes folder to use when a new file is created using --template. This also performs a simple replacement of the text HEADER_DATE with the date formatted as "%A %d %B %Y" to use in the document title.
 
 ## Future features
-- When the file doesn't already exist, it uses an optional template to create the file. A sample template is supplied.
 - Support for daily notes options.
+- Support for batch creation of files in advance. This is useful if you use a device where you can edit files, but can't easily create them.
+- Test on older versions of Python and release for 3.8+.
 
 
 ## Installation
 
-Presently only running installed in the virtual environment is supported.
+### pipx
+
+The recommended way to install the pubished package is through [pipx](https://pypa.github.io/pipx/).
+
+```
+# from PyPI
+pipx install take-note
+
+# direct from github
+pipx install git+https://github.com/wsinned/take-note
+```
+
+### Virtual Environment
 
 ```
 python -m venv venv 
