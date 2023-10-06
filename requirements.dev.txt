@@ -1,3 +1,7 @@
 pytest
 dateutils
 black
+build
+setuptools
+wheel
+twine

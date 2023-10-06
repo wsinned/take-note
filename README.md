@@ -3,6 +3,7 @@
 
 ## Features
 
+- Written in Python with no runtime dependencies.
 - Open notes files for specified week using the `code` command line for VS Code.
     - --thisWeek, --lastWeek and --nextWeek are supported.
 - Organises notes in a date based folder structure from your root notes folder, e.g. 2023/08
@@ -22,15 +23,52 @@
 
 ### pipx
 
-The recommended way to install the pubished package is through [pipx](https://pypa.github.io/pipx/).
+The recommended way to install the published package is through [pipx](https://pypa.github.io/pipx/).
 
 ```
 # from PyPI
-pipx install take-note
+pipx install take-note-cli
 
 # direct from github
 pipx install git+https://github.com/wsinned/take-note
 ```
+
+## Usage
+
+### Command Line
+
+Specify a folder using the --notesFolder option, otherwise $HOME/Notes will be used
+A week option must be supplied from --thisWeek, --lastWeek or --nextWeek
+
+```
+take-note --notesFolder=$HOME/MyNotes --thisWeek
+```
+
+A note will be created in the under the MyNotes/YYYY/mm folder named with the date of the Monday of this week, e.g. 2023-08-07-Weekly-log.md
+
+
+### Aliases
+
+Setting up aliases in you preferred shell is a great way to make accessing your notes quick and easy.
+
+```
+notes_folder="$HOME/SomePath/MyNotes"
+args="--notesFolder $notes_folder --workspace notes.code-workspace --template Home-weekly-log-template.md"
+
+alias thisWeek="take-note --thisWeek $args"
+alias nextWeek="take-note --nextWeek $args"
+alias lastWeek="take-note --lastWeek $args"
+```
+
+All you have to do now is type one of the following to open the desired note file.
+
+```
+> thisWeek
+> lastWeek
+> nextWeek
+```
+
+## Other Installation Methods
 
 ### Virtual Environment
 
@@ -45,18 +83,6 @@ venv/bin/pip install -r requirements.txt
 venv/bin/pip install -e .
 
 ```
-
-## Usage
-
-Specify a folder using the --notesFolder option, otherwise $HOME/Notes will be used
-A week option must be supplied from --thisWeek, --lastWeek or --nextWeek
-
-```
-venv/bin/take-note --notesFolder=$HOME/MyNotes --thisWeek
-```
-
-A note will be created in the under the MyNotes/YYYY/mm folder named with the date of the Monday of this week, e.g. 2023-08-07-Weekly-log.md
-
 
 
 ## Development
