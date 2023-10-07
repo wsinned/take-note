@@ -1,6 +1,7 @@
 import argparse
 import pathlib
 from sys import exit
+import takenote.__version__
 
 
 def init_argparse() -> argparse.ArgumentParser:
@@ -9,7 +10,7 @@ def init_argparse() -> argparse.ArgumentParser:
 
     parser = argparse.ArgumentParser(usage="%(prog)s [OPTIONS]", description=help_text)
     parser.add_argument(
-        "-v", "--version", action="version", version=f"{parser.prog} version 0.0.1"
+        "-v", "--version", action="version", version=f"{parser.prog} version {takenote.__version__}"
     )
     parser.add_argument(
         "--notesFolder",
