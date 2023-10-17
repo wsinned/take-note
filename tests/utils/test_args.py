@@ -48,3 +48,7 @@ class TestArgs:
     def test_template_option(self):
         options, _ = args.process_args(["--lastWeek", "--template", "a-template.md"])
         assert options.template == "a-template.md"
+
+    def test_batch_option(self):
+        options, _ = args.process_args(["--thisWeek", "--batch", "2"])
+        assert options.batch == 2

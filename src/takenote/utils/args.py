@@ -10,7 +10,10 @@ def init_argparse() -> argparse.ArgumentParser:
 
     parser = argparse.ArgumentParser(usage="%(prog)s [OPTIONS]", description=help_text)
     parser.add_argument(
-        "-v", "--version", action="version", version=f"{parser.prog} version {takenote.__version__}"
+        "-v",
+        "--version",
+        action="version",
+        version=f"{parser.prog} version {takenote.__version__}",
     )
     parser.add_argument(
         "--notesFolder",
@@ -54,6 +57,14 @@ def init_argparse() -> argparse.ArgumentParser:
         default=None,
         help="""The template to use when creating a new file. 
         The file location is relative to the root notes folder.""",
+    )
+    parser.add_argument(
+        "--batch",
+        action="store",
+        type=int,
+        default=None,
+        help="""A positive integer value. Used to create x number of files,
+          e.g. for the next 5 weeks.""",
     )
 
     return parser
