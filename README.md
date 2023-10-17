@@ -130,3 +130,22 @@ venv/bin/pytest
 # close the virtual environment when done
 deactivate
 ````
+
+## Build & Publish
+
+From an installed and tested venv, do the following:
+
+```
+# check the version:
+cat src/takenote/__version__.py
+
+# build the package
+venv/bin/pyproject-build
+
+# publish the package
+venv/bin/twine upload dist/*
+```
+Credentials for twine should be either:
+    - stored in .pypirc in the [pypi] section
+    - entered at the prompt, username = __token__ and password = your_api_key
+
