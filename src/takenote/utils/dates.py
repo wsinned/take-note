@@ -2,6 +2,7 @@ from datetime import date, timedelta
 
 WEEK = 7
 
+
 def get_monday(the_date: date):
     return the_date - timedelta(days=(the_date.isoweekday() - 1))
 
@@ -21,10 +22,12 @@ def get_time_delta_from_options(options):
         delta = timedelta(-WEEK)
     elif options.nextWeek:
         delta = timedelta(WEEK)
-    else:
-        raise ValueError("No week option supplied.")
 
     return delta
 
+
 def get_weeks_delta(weeks: int):
-    return timedelta(WEEK * weeks)
+    if weeks >= 1:
+        return timedelta(WEEK * weeks)
+    else:
+        raise ValueError("Batch size must be 1 or greater.")
