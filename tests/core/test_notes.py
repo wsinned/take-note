@@ -1,4 +1,3 @@
-import pytest
 from takenote.core import notes
 from pathlib import Path
 from dateutil.parser import parse
@@ -29,19 +28,19 @@ class TestNotes:
         notes.create_file(target_file, template_path, day)
         assert target_file.exists()
 
-    def test_open_file_without_workspace(self, mock_subprocess):
+    def test_open_file_without_workspace(self, mock_subprocess: None):
         homepath = Path.home()
         target_file = homepath.joinpath("tmp/notes/2023/08/2023-08-31-Weekly-log.md")
-        note_file = notes.open_file(homepath.joinpath("tmp/notes"), "code", target_file)
-        # assert note_file == target_file
+        notes.open_file(homepath.joinpath("tmp/notes"), "code", target_file)
+        assert target_file.exists
 
-    def test_open_file_with_workspace(self, mock_subprocess):
+    def test_open_file_with_workspace(self, mock_subprocess: None):
         homepath = Path.home()
         target_file = homepath.joinpath("tmp/notes/2023/08/2023-08-31-Weekly-log.md")
-        note_file = notes.open_file(
+        notes.open_file(
             homepath.joinpath("tmp/notes"), "code", target_file, "some.code-workspace"
         )
-        # assert note_file == target_file
+        assert target_file.exists
 
     def setup_method(self):
         root = Path.home().joinpath("tmp/notes")
