@@ -16,6 +16,12 @@ def init_argparse() -> argparse.ArgumentParser:
         version=f"{parser.prog} version {takenote.__version__}",
     )
     parser.add_argument(
+        "--verbose",
+        action="store_true",
+        default=False,
+        help="""Print additional information during execution.""",
+    )
+    parser.add_argument(
         "--notesFolder",
         default=pathlib.Path.home().joinpath("Notes"),
         type=pathlib.Path,
