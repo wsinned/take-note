@@ -1,6 +1,6 @@
 pytest
 dateutils
-black
+ruff
 build
 setuptools
 wheel

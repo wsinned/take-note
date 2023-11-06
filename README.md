@@ -129,6 +129,14 @@ venv/bin/pytest
 deactivate
 ```
 
+## Linting
+
+The project uses [ruff](https://github.com/charliermarsh/ruff) for linting and optionally for formatting.
+
+```bash
+venv/bin/ruff . --config pyproject.toml
+```
+
 ## Build & Publish
 
 From an installed and tested venv, do the following:
