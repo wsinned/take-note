@@ -13,21 +13,21 @@ class TestArgs:
 
     def test_this_week_option_on(self):
         options, _ = args.process_args(["--thisWeek"])
-        assert options.thisWeek == True
+        assert options.thisWeek is True
 
     def test_last_week_option_on(self):
         options, _ = args.process_args(["--lastWeek"])
-        assert options.lastWeek == True
+        assert options.lastWeek is True
 
     def test_next_week_option_on(self):
         options, _ = args.process_args(["--nextWeek"])
-        assert options.nextWeek == True
+        assert options.nextWeek is True
 
     def test_this_week_options_not_supplied(self):
         options, _ = args.process_args([])
-        assert options.thisWeek == False
-        assert options.lastWeek == False
-        assert options.nextWeek == False
+        assert options.thisWeek is False
+        assert options.lastWeek is False
+        assert options.nextWeek is False
 
     def test_editor_option(self):
         options, _ = args.process_args(["--editor", "nvim", "--thisWeek"])

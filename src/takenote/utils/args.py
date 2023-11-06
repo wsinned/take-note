@@ -1,12 +1,11 @@
 import argparse
 import pathlib
-from sys import exit
 import takenote.__version__
 
 
 def init_argparse() -> argparse.ArgumentParser:
-    help_text = """Create a notes file for the requested 
-        week."""
+    help_text = """Create a notes file for the requested
+         week."""
 
     parser = argparse.ArgumentParser(usage="%(prog)s [OPTIONS]", description=help_text)
     parser.add_argument(
@@ -26,7 +25,8 @@ def init_argparse() -> argparse.ArgumentParser:
         default=pathlib.Path.home().joinpath("Notes"),
         type=pathlib.Path,
         help="""The root path for the notes folder. 
-        If not supplied this defaults to the Notes folder in the users home folder.""",
+        If not supplied this defaults to the Notes
+         folder in the users home folder.""",
     )
     parser.add_argument(
         "--editor",
@@ -38,7 +38,8 @@ def init_argparse() -> argparse.ArgumentParser:
         "--workspace",
         default=None,
         help="""The VSCode workspace to open along with the notes. 
-        If supplied this overrides the --editor option to 'code' for Visual Studio Code""",
+        If supplied this overrides the --editor option to 'code'
+         for Visual Studio Code""",
     )
     parser.add_argument(
         "--thisWeek",

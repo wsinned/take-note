@@ -1,4 +1,4 @@
-from datetime import date, timedelta
+from datetime import date
 import sys
 from takenote.utils.paths import (
     generate_note_folder,

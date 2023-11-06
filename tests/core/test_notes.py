@@ -49,5 +49,5 @@ class TestNotes:
             root.mkdir(parents=True)
 
     def _create_template(self, template_path: Path):
-        text = f"# Test - HEADER_DATE"
+        text = "# Test - HEADER_DATE"
         template_path.write_text(text)
