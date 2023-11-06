@@ -6,3 +6,9 @@ build-backend = "setuptools.build_meta"
 pythonpath = [
   "src"
 ]
+
+[tool.ruff]
+src = ["src"]
+
+[tool.ruff.per-file-ignores]
+"src/takenote/__init__.py" = ["F401"]
