@@ -1,7 +1,0 @@
-pytest
-dateutils
-ruff
-build
-setuptools
-wheel
-twine
