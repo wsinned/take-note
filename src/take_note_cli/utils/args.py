@@ -1,6 +1,6 @@
 import argparse
 import pathlib
-import takenote.__version__
+import take_note_cli.__version__
 
 
 def init_argparse() -> argparse.ArgumentParser:
@@ -12,7 +12,7 @@ def init_argparse() -> argparse.ArgumentParser:
         "-v",
         "--version",
         action="version",
-        version=f"{parser.prog} version {takenote.__version__}",
+        version=f"{parser.prog} version {take_note_cli.__version__}",
     )
     parser.add_argument(
         "--verbose",

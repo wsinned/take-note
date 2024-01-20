@@ -7,4 +7,4 @@ def mock_subprocess(monkeypatch):
         print("FAKING CALL")
         return "FAKE"
 
-    monkeypatch.setattr("takenote.core.notes.call", mock_subprocess_call)
+    monkeypatch.setattr("take_note_cli.core.notes.call", mock_subprocess_call)

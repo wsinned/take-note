@@ -1,4 +1,4 @@
-from takenote.utils import args
+from take_note_cli.utils import args
 from pathlib import Path
 
 

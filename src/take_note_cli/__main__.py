@@ -1,5 +1,5 @@
 import sys
-from takenote.core import notes
+from take_note_cli.core import notes
 
 
 def main():

@@ -1,17 +1,17 @@
 from datetime import date
 import sys
-from takenote.utils.paths import (
+from take_note_cli.utils.paths import (
     generate_note_folder,
     generate_note_path,
     generate_template_path,
 )
-from takenote.utils.dates import (
+from take_note_cli.utils.dates import (
     get_monday,
     get_time_delta_from_options,
     format_header_date,
     get_weeks_delta,
 )
-from takenote.utils.args import process_args
+from take_note_cli.utils.args import process_args
 from subprocess import call
 
 

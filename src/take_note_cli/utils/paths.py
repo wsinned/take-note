@@ -1,6 +1,6 @@
 from pathlib import Path
 from datetime import date
-from takenote.utils.dates import format_file_date
+from take_note_cli.utils.dates import format_file_date
 
 
 def generate_note_path(week: date):

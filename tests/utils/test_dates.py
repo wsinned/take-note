@@ -1,7 +1,7 @@
 from datetime import timedelta
 from dateutil.parser import parse
 import pytest
-from takenote.utils.dates import (
+from take_note_cli.utils.dates import (
     get_monday,
     format_header_date,
     format_file_date,

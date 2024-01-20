@@ -1,6 +1,6 @@
 from dateutil.parser import parse
 from pathlib import Path
-from takenote.utils.paths import generate_note_path, generate_note_folder
+from take_note_cli.utils.paths import generate_note_path, generate_note_folder
 
 
 class TestPaths:

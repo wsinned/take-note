@@ -1,4 +1,4 @@
-from takenote.core import notes
+from take_note_cli.core import notes
 from pathlib import Path
 from dateutil.parser import parse
 from shutil import rmtree
