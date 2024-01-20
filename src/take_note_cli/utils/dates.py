@@ -26,7 +26,7 @@ def get_time_delta_from_options(options):
 
 
 def get_weeks_delta(weeks: int):
-    if weeks >= 1:
+    if weeks >= 0:
         return timedelta(WEEK * weeks)
     else:
-        raise ValueError("Batch size must be 1 or greater.")
+        raise ValueError("Batch size must be 0 or greater.")
