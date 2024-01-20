@@ -12,6 +12,7 @@
         pkgs.python311Packages.twine
         pkgs.python311Packages.pytest
         pkgs.python311Packages.dateutils
+        pkgs.ruff
     ];
 
     # nativeBuildInputs is usually what you want 

@@ -49,5 +49,4 @@ pythonpath = [
 src = ["src"]
 
 [tool.ruff.per-file-ignores]
-"src/take_note_cli/__init__.py" = ["F401"]
 
