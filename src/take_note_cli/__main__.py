@@ -3,8 +3,6 @@ from take_note_cli.core import notes
 
 
 def main():
-    print("Welcome to take-note-cli.")
-
     notes.main(sys.argv[1:])
 
 

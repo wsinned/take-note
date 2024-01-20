@@ -86,6 +86,7 @@ def main(argv):
     options, parser = process_args(argv)
 
     if options.verbose:
+        print("Welcome to take-note-cli")
         print(options)
 
     delta = calculate_week_offset(options, parser)
