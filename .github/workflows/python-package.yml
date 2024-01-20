@@ -39,6 +39,6 @@ jobs:
     - name: Install dependencies
       run: poetry install
     - name: Lint with ruff
-      run: ruff --config pyproject.toml .
+      run: poetry run ruff --config pyproject.toml .
     - name: Test with pytest
       run: poetry run pytest -v
