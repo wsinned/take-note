@@ -42,6 +42,10 @@ class TestDates:
         day = parse("2023-08-31")
         assert format_file_date(day) == "2023-08-31"
 
+    def test_get_this_week_delta_from_no_options(self):
+        option = self._get_options()
+        assert get_time_delta_from_options(option) == timedelta(0)
+
     def test_get_this_week_delta_from_options(self):
         option = self._get_options()
         option.thisWeek = True

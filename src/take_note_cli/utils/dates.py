@@ -16,6 +16,8 @@ def format_file_date(the_date: date):
 
 
 def get_time_delta_from_options(options):
+    delta = timedelta(0)
+    if options.lastWeek:
         delta = timedelta(-WEEK)
     elif options.nextWeek:
         delta = timedelta(WEEK)
