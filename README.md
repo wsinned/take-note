@@ -9,6 +9,7 @@
 - Open notes files for specified week using the `code` command line for VS Code.
   - --thisWeek, --lastWeek and --nextWeek are supported.
 - Organises notes in a date based folder structure from your root notes folder, e.g. 2023/08
+  - The default folder is $HOME/Notes
   - set the root notes folder using --notesFolder
 - Choose which editor to use with --editor
 - Specify a VS Code workspace to open along with the note file with --workspace
@@ -52,12 +53,11 @@ A note will be created in the under the MyNotes/YYYY/mm folder named with the da
 Setting up aliases in you preferred shell is a great way to make accessing your notes quick and easy.
 
 ```bash
-notes_folder="$HOME/SomePath/MyNotes"
-args="--notesFolder $notes_folder --workspace notes.code-workspace --template Home-weekly-log-template.md"
+NOTES_FOLDER="$HOME/SomePath/MyNotes"
 
-alias thisWeek="take-note --thisWeek $args"
-alias nextWeek="take-note --nextWeek $args"
-alias lastWeek="take-note --lastWeek $args"
+alias thisWeek="take-note --thisWeek --notesFolder $NOTES_FOLDER --workspace notes.code-workspace"
+alias nextWeek="take-note --nextWeek --notesFolder $NOTES_FOLDER --workspace notes.code-workspace --batch 5"
+alias lastWeek="take-note --lastWeek --editor hx"
 ```
 
 All you have to do now is type one of the following to open the desired note file.
@@ -90,43 +90,29 @@ venv/bin/pip install -e .
 
 The supplied shell.nix definition provides support for entering a nix-shell directly in the repository with all dependencies.
 
-```zsh
+```bash
 nix-shell --run zsh # ensure using zsh over default bash session
-
-# only needed once, or to recreate the virtual environment
-python -m venv venv 
-
-source venv/bin/activate
-
-# install with tests as editable src
-venv/bin/pip install -e '.[test]'
-
-# run the tests
-pytest
-
-# close the virtual environment and exit the shell when done
-deactivate
-exit
 ```
+
+Then follow the instructions for other OS.
 
 ### Other Linux or macOS
 
-```zsh
+```bash
 # only needed once, or to recreate the virtual environment
-python -m venv venv 
+# install dependencies
+poetry install
 
-source venv/bin/activate
+# enter an activated shell and run tests
+poetry shell
+pytest
+ruff . --config pyproject.toml
 
-venv/bin/pip install -r requirements.txt -r requirements.dev.txt
+# run the tests without activating a shell
+poetry run pytest
 
-# install with tests as editable src
-venv/bin/pip install -e '.[test]'
-
-# run the tests
-venv/bin/pytest
-
-# close the virtual environment when done
-deactivate
+# exit the shell
+exit
 ```
 
 ## Linting
@@ -134,22 +120,21 @@ deactivate
 The project uses [ruff](https://github.com/charliermarsh/ruff) for linting and optionally for formatting.
 
 ```bash
-venv/bin/ruff . --config pyproject.toml
+poetry run ruff . --config pyproject.toml
 ```
 
 ## Build & Publish
 
 From an installed and tested venv, do the following:
 
-```bash
-# check the version:
-cat src/takenote/__version__.py
+Bump the version inpyproject.tom
 
+```bash
 # build the package
-venv/bin/pyproject-build
+poetry build
 
 # publish the package
-venv/bin/twine upload dist/*
+poetry publish
 ```
 
 Credentials for twine should be either:
