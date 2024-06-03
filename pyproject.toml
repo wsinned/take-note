@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "take-note-cli"
-version = "1.2.1"
+version = "1.2.2"
 description = "Create and open notes in your favourite editor."
 license = "MIT"
 authors = [

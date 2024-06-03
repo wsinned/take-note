@@ -127,7 +127,7 @@ poetry run ruff . --config pyproject.toml
 
 From an installed and tested venv, do the following:
 
-Bump the version inpyproject.tom
+Bump the version in pyproject.toml
 
 ```bash
 # build the package
