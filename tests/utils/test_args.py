@@ -7,6 +7,10 @@ class TestArgs:
         options, _ = args.process_args(["--notesFolder", "/tmp/notes", "--thisWeek"])
         assert options.notesFolder == Path("/tmp/notes")
 
+    def test_parse_notes_folder_with_space(self):
+        options, _ = args.process_args(["--notesFolder", "/tmp/some notes", "--thisWeek"])
+        assert options.notesFolder == Path("/tmp/some notes")
+
     def test_default_notes_folder(self):
         options, _ = args.process_args(["--thisWeek"])
         assert options.notesFolder == Path.home().joinpath("Notes")
