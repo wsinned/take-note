@@ -12,6 +12,7 @@
         pkgs.python311Packages.twine
         pkgs.python311Packages.pytest
         pkgs.python311Packages.dateutils
+        pkgs.python311Packages.confuse
         pkgs.ruff
     ];
 
