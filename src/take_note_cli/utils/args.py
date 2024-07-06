@@ -1,5 +1,4 @@
 import argparse
-import pathlib
 import importlib.metadata
 
 __version__ = importlib.metadata.version("take-note-cli")
@@ -24,8 +23,7 @@ def init_argparse() -> argparse.ArgumentParser:
     )
     parser.add_argument(
         "--notesFolder",
-        default=pathlib.Path.home().joinpath("Notes"),
-        type=pathlib.Path,
+        default=None,
         help="""The root path for the notes folder. 
         If not supplied this defaults to the Notes
          folder in the users home folder.""",
@@ -82,8 +80,5 @@ def init_argparse() -> argparse.ArgumentParser:
 def process_args(args):
     parser = init_argparse()
     options = parser.parse_args(args)
-
-    if options.workspace is not None:
-        options.editor = "code"
 
     return options, parser

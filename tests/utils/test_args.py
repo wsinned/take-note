@@ -5,15 +5,13 @@ from pathlib import Path
 class TestArgs:
     def test_parse_notes_folder(self):
         options, _ = args.process_args(["--notesFolder", "/tmp/notes", "--thisWeek"])
-        assert options.notesFolder == Path("/tmp/notes")
+        assert Path(options.notesFolder) == Path("/tmp/notes")
 
     def test_parse_notes_folder_with_space(self):
-        options, _ = args.process_args(["--notesFolder", "/tmp/some notes", "--thisWeek"])
-        assert options.notesFolder == Path("/tmp/some notes")
-
-    def test_default_notes_folder(self):
-        options, _ = args.process_args(["--thisWeek"])
-        assert options.notesFolder == Path.home().joinpath("Notes")
+        options, _ = args.process_args(
+            ["--notesFolder", "/tmp/some notes", "--thisWeek"]
+        )
+        assert Path(options.notesFolder) == Path("/tmp/some notes")
 
     def test_this_week_option_on(self):
         options, _ = args.process_args(["--thisWeek"])
@@ -41,13 +39,8 @@ class TestArgs:
         options, _ = args.process_args(
             ["--workspace", "notes.code-workspace", "--thisWeek"]
         )
+        print(options)
         assert options.workspace == "notes.code-workspace"
-
-    def test_workspace_option_overrides_editor(self):
-        options, _ = args.process_args(
-            ["--workspace", "notes.code-workspace", "--thisWeek", "--editor", "vim"]
-        )
-        assert options.editor == "code"
 
     def test_template_option(self):
         options, _ = args.process_args(["--lastWeek", "--template", "a-template.md"])

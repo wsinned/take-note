@@ -12,6 +12,7 @@ from take_note_cli.utils.dates import (
     get_weeks_delta,
 )
 from take_note_cli.utils.args import process_args
+from take_note_cli.utils.config import process_config
 from subprocess import call
 
 
@@ -48,22 +49,26 @@ def get_path_for_file(week: date, folder_path):
 
 
 def create_batch_of_files(options, week, template_path):
+    verbose = options["verbose"]
+    batch = options["batch"]
+    notesFolder = options["notesFolder"]
     initial_note_path = None
-    if options.batch is not None:
-        for i in range(options.batch):
+
+    if batch is not None:
+        for i in range(batch):
             batch_week = week + get_weeks_delta(i)
-            note_path, file_exists = get_path_for_file(batch_week, options.notesFolder)
+            note_path, file_exists = get_path_for_file(batch_week, notesFolder)
             if i == 0:
                 initial_note_path = note_path
 
             if not file_exists:
-                if options.verbose:
+                if verbose:
                     print(f"Creating file: {note_path}")
                 create_file(note_path, template_path, batch_week)
     else:
-        initial_note_path, file_exists = get_path_for_file(week, options.notesFolder)
+        initial_note_path, file_exists = get_path_for_file(week, notesFolder)
         if not file_exists:
-            if options.verbose:
+            if verbose:
                 print(f"Creating file: {initial_note_path}")
             create_file(initial_note_path, template_path, week)
 
@@ -84,17 +89,26 @@ def open_file(folder_path, editor, note_file, verbose, workspace=None):
 def main(argv):
     template_path = None
     options, parser = process_args(argv)
+    config = process_config(options)
 
-    if options.verbose:
+    if config["verbose"]:
         print("Welcome to take-note-cli")
         print(options)
 
     delta = calculate_week_offset(options, parser)
     week = get_monday(date.today()) + delta
 
-    if options.template is not None:
-        template_path = generate_template_path(options.notesFolder, options.template)
+    if config["template"] is not None:
+        template_path = generate_template_path(
+            config["notesFolder"], config["template"]
+        )
 
-    note_path = create_batch_of_files(options, week, template_path)
+    note_path = create_batch_of_files(config, week, template_path)
 
-    open_file(options.notesFolder, options.editor, note_path, options.verbose, options.workspace)
+    open_file(
+        config["notesFolder"],
+        config["editor"],
+        note_path,
+        config["verbose"],
+        config["workspace"],
+    )
