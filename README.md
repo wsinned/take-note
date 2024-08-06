@@ -2,7 +2,7 @@
 
 **Create, organise and open notes in your favourite editor.**
 
-I like having a quick, reliable and repeatable way of taking notes. If I have to open an editor, nvigate to the correct file, or create one in the correct place when it doesn't exist, then I find that I end up taking notes in random places. With Take Note, I have a few simple aliases set up so that typing thisWeek in my shell gets me to the right place in my DropBox with a new file if needed, created from a template so that eveything is consistent. This really scratches my itch. If it works for you great! If not, create your own solution.
+I like having a quick, reliable and repeatable way of taking notes. If I have to open an editor, navigate to the correct file, or create one in the correct place when it doesn't exist, then I find that I end up taking notes in random places. With Take Note, I have a few simple aliases set up so that typing thisWeek in my shell gets me to the right place in my DropBox with a new file, created from a template so that eveything is consistent, if needed. This really scratches my itch. If it works for you great! If not, create your own solution.
 
 ## Features
 
