@@ -4,15 +4,15 @@
 
 
     buildInputs = [
-        pkgs.python311
-        pkgs.python311Packages.pip
-        pkgs.python311Packages.setuptools
-        pkgs.python311Packages.wheel
-        pkgs.python311Packages.build
-        pkgs.python311Packages.twine
-        pkgs.python311Packages.pytest
-        pkgs.python311Packages.dateutils
-        pkgs.python311Packages.confuse
+        pkgs.python312
+        pkgs.python312Packages.pip
+        pkgs.python312Packages.setuptools
+        pkgs.python312Packages.wheel
+        pkgs.python312Packages.build
+        pkgs.python312Packages.twine
+        pkgs.python312Packages.pytest
+        pkgs.python312Packages.dateutils
+        pkgs.python312Packages.confuse
         pkgs.ruff
     ];
 
