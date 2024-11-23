@@ -3,7 +3,7 @@ import confuse
 
 template = {
     "notesFolder": confuse.Path(cwd=pathlib.Path.home()),
-    "editor": "code",
+    "editor": None,
     "workspace": None,
     "template": None,
     "batch": None,

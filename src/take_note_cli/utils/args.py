@@ -30,7 +30,7 @@ def init_argparse() -> argparse.ArgumentParser:
     )
     parser.add_argument(
         "--editor",
-        default="code",
+        default=None,
         help="""The editor to open the notes with. 
         If not supplied this defaults 'code' for Visual Studio Code""",
     )
