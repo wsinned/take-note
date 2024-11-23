@@ -28,20 +28,6 @@ class TestNotes:
         notes.create_file(target_file, template_path, day)
         assert target_file.exists()
 
-    def test_open_file_without_workspace(self, mock_subprocess: None):
-        homepath = Path.home()
-        target_file = homepath.joinpath("tmp/notes/2023/08/2023-08-31-Weekly-log.md")
-        notes.open_file(homepath.joinpath("tmp/notes"), "code", target_file, False)
-        assert target_file.exists
-
-    def test_open_file_with_workspace(self, mock_subprocess: None):
-        homepath = Path.home()
-        target_file = homepath.joinpath("tmp/notes/2023/08/2023-08-31-Weekly-log.md")
-        notes.open_file(
-            homepath.joinpath("tmp/notes"), "code", target_file, False, "some.code-workspace"
-        )
-        assert target_file.exists
-
     def setup_method(self):
         root = Path.home().joinpath("tmp/notes")
         if root.exists():

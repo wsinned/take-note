@@ -13,7 +13,9 @@ from take_note_cli.utils.dates import (
 )
 from take_note_cli.utils.args import process_args
 from take_note_cli.utils.config import process_config
-from subprocess import call
+
+from take_note_cli.core import generic_editor_handler
+from take_note_cli.core import vscode_handler
 
 
 def calculate_week_offset(options, parser):
@@ -75,15 +77,8 @@ def create_batch_of_files(options, week, template_path):
     return initial_note_path
 
 
-def open_file(folder_path, editor, note_file, verbose, workspace=None):
-    args = [editor, note_file]
-    if workspace:
-        args.append(folder_path.joinpath(workspace))
-
-    if verbose:
-        print(f"Opening file with args: {args}")
-
-    call(args)
+def open_file(handler):
+    handler()
 
 
 def main(argv):
@@ -103,12 +98,14 @@ def main(argv):
             config["notesFolder"], config["template"]
         )
 
+    if config["verbose"]:
+        print(f"Working Config: {config}")
+
     note_path = create_batch_of_files(config, week, template_path)
 
-    open_file(
-        config["notesFolder"],
-        config["editor"],
-        note_path,
-        config["verbose"],
-        config["workspace"],
-    )
+    if config["editor"] == "code":
+        handler = vscode_handler.create_handler(config, note_path)
+    else:
+        handler = generic_editor_handler.create_handler(config, note_path)
+
+    open_file(handler)
