@@ -14,7 +14,7 @@ from take_note_cli.utils.dates import (
 from take_note_cli.utils.args import process_args
 from take_note_cli.utils.config import process_config
 
-from take_note_cli.core import generic_editor_handler
+from take_note_cli.core import generic_editor_handler, obsidian_handler
 from take_note_cli.core import vscode_handler
 
 
@@ -88,7 +88,8 @@ def main(argv):
 
     if config["verbose"]:
         print("Welcome to take-note-cli")
-        print(options)
+        print(f"options: {options}")
+        print(f"config: {config}")
 
     delta = calculate_week_offset(options, parser)
     week = get_monday(date.today()) + delta
@@ -103,7 +104,9 @@ def main(argv):
 
     note_path = create_batch_of_files(config, week, template_path)
 
-    if config["editor"] == "code":
+    if config["editor"] == "obsidian":
+        handler = obsidian_handler.create_handler(config, note_path)
+    elif config["editor"] == "code":
         handler = vscode_handler.create_handler(config, note_path)
     else:
         handler = generic_editor_handler.create_handler(config, note_path)

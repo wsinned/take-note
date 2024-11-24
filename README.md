@@ -7,13 +7,15 @@ I like having a quick, reliable and repeatable way of taking notes. If I have to
 ## Features
 
 - Written in Python with minimal runtime dependencies. Initially there were none, but I recently added Confuse (in v2.0.0) to allow a config file to do some of the heavy lifting that made aliases cumbersome.
-  - Works on Python 3.8 - 3.12.
+  - Works on Python 3.8 - 3.13.
 - Open notes files for specified week using the `code` command line for VS Code.
   - --thisWeek, --lastWeek and --nextWeek are supported.
 - Organises notes in a date based folder structure from your root notes folder, e.g. 2023/08
   - The default folder is $HOME/Notes. I prefer to keep them in Google Drive or DropBox so I can access from mobile, tablet or my spare laptop.
   - set the root notes folder using --notesFolder
 - Choose which editor to use with --editor
+  - VSCode and Obsidian are supported with dedicated handlers
+  - Fallback generic handler will open anything ou can call from the terminal e.g. vi, emacs.
 - Specify a VS Code workspace to open along with the note file with --workspace
   - This will automatically override the --editor setting to `code`. I have my default workspace set up with:
     - Zen mode
@@ -21,6 +23,18 @@ I like having a quick, reliable and repeatable way of taking notes. If I have to
 - Specify a template file relative to the root notes folder to use when a new file is created using --template. This also performs a simple replacement of the text HEADER_DATE with the date formatted as "%A %d %B %Y" to use in the document title.
 - Support for batch creation of files in advance. This is useful if you use a device where you can edit files, but can't easily create them. Use --batch 5 along with any of the --*Week options to create that week and the following 4 weeks too.
 - Config file allows base options to be set and reduce command line arguments needed.
+
+### Obsidian Integration
+
+Support for opening using [Obsidian application uris](https://help.obsidian.md/Extending+Obsidian/Obsidian+URI):
+
+```bash
+xdg-open "obsidian://open?path=/home/wsinned/Documents/Personal/WorkNotes/2024/11/2024-11-11-Weekly-log.md
+
+```
+This handler opens the vault 'Personal' and the note file in the WorkNotes/2024/11/ folder of the vault.
+
+The command called adapts according to `sys.platform` e.g. `open`, `start` or `xdg-open`.
 
 ## Future features
 

@@ -34,9 +34,12 @@ def process_config(options):
     config = check_for_config_file()
     config.set_args(options)
     valid_config = config.get(template)
+    workspace = None
 
-    workspace = config["workspace"].get(confuse.Optional(confuse.String()))
+    if valid_config["workspace"] is not None:
+        workspace = valid_config["workspace"]
+
     if workspace is not None:
-        options.editor = "code"
+        valid_config.editor = "code"
 
     return valid_config
