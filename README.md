@@ -169,10 +169,11 @@ Bump the version in pyproject.toml
 # build the package
 poetry build
 
+# ensure your pypi token is registered with Poetry
+poetry config pypi-token.pypi <fresh-token>
+
 # publish the package
 poetry publish
 ```
 
-Credentials for twine should be either:
-    - stored in .pypirc in the [pypi] section
-    - entered at the prompt, username = **token** and password = your_api_key
+TODO: add poetry publishing to GitHub workflow
