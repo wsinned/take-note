@@ -32,6 +32,7 @@ Support for opening using [Obsidian application uris](https://help.obsidian.md/E
 xdg-open "obsidian://open?path=/home/wsinned/Documents/Personal/WorkNotes/2024/11/2024-11-11-Weekly-log.md
 
 ```
+
 This handler opens the vault 'Personal' and the note file in the WorkNotes/2024/11/ folder of the vault.
 
 The command called adapts according to `sys.platform` e.g. `open`, `start` or `xdg-open`.
@@ -161,19 +162,28 @@ poetry run ruff . --config pyproject.toml
 
 ## Build & Publish
 
-From an installed and tested venv, do the following:
+### Automated Way
 
-Bump the version in pyproject.toml
+Test, build and publish are now completed from a GitHub workflow. The workflow is triggered by pushing a tagged branch `v*` to GitHub.
 
 ```bash
-# build the package
-poetry build
+poetry version |patch|minor|major|
+git add pyproject.toml
+git commit -m "Release v2.1.4"
+git tag -a "v2.1.4" -m "Release v2.1.4"
+pit push --tag origin HEAD
+```
 
+The workflow will run and complete publishing.
+
+### Old Manual Way
+
+As above, but after pushing
+
+```bash
 # ensure your pypi token is registered with Poetry
 poetry config pypi-token.pypi <fresh-token>
 
 # publish the package
 poetry publish
 ```
-
-TODO: add poetry publishing to GitHub workflow
