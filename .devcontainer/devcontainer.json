@@ -1,0 +1,31 @@
+{
+	"name": "Deno",
+	"image": "bluefin-cli-python-dx",
+
+	"containerEnv": {
+		"HOME": "/var/home/wsinned",
+		"TZ": "GMT",
+		"USER": "wsinned"
+	},
+
+	"mounts": [
+		{
+			"source": "/var/home/wsinned",
+			"target": "/var/home/wsinned",
+			"type": "bind"
+		}
+	],
+
+	"postCreateCommand": "brew install python poetry",
+
+	"customizations": {
+		"vscode": {
+			"extensions": [],
+			"settings": {
+				"terminal.integrated.defaultProfile.linux": "fish"
+			}
+		}
+	},
+
+	"remoteUser": "wsinned"
+}
