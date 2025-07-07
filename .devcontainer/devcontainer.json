@@ -16,8 +16,6 @@
 		}
 	],
 
-	"postCreateCommand": "brew install python poetry",
-
 	"customizations": {
 		"vscode": {
 			"extensions": [],
