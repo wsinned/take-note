@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "take-note-cli"
-version = "2.1.6"
+version = "2.1.7"
 description = "Create and open notes in your favourite editor."
 license = "MIT"
 authors = [
@@ -27,7 +27,8 @@ packages = [
 
 [tool.poetry.dependencies]
 python = "^3.8"
-confuse = "^2.0"
+confuse = "^2.2"
+typing_extensions = ">=4.0"
 
 [tool.poetry.group.dev.dependencies]
 pytest = "^7.4.3"
